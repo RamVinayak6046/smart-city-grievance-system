@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0756a5">
+    <meta name="description" content="Smart City Grievance Management System for quick, transparent civic issue reporting and resolution.">
+    <title>Smart City Grievance Management System</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="top-strip">
+        <div class="container top-strip-inner">
+          <p><span class="dot-live"></span> Official Municipal Citizen Services Portal</p>
+          <div class="top-strip-actions">
+            <span>24x7 Helpline: <strong>1800-123-4567</strong></span>
+            <button class="text-button" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+              <span data-icon="moon"></span><span class="theme-label">Dark mode</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="main-nav">
+        <div class="container nav-inner">
+          <a class="brand" href="#home" aria-label="Smart City Grievance Management System home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M24 3 5 12v13c0 9.7 8.1 17.5 19 20 10.9-2.5 19-10.3 19-20V12L24 3Z" fill="currentColor"/><path d="M14 31V18h7v13m6 0V13h7v18M11 31h26" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="brand-copy">
+              <strong>Smart City</strong>
+              <small>Grievance Management System</small>
+            </span>
+          </a>
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu" type="button">
+            <span></span><span></span><span></span>
+          </button>
+          <nav class="site-nav" id="site-nav" aria-label="Primary navigation"></nav>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1"></main>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <div class="modal-root" id="modal-root"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "smart-city-grievance-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A modern full-stack civic grievance management portal for citizens and municipal administrators.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
