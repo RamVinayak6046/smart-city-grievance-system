@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    container_name: civicfix_app
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      - APP_ENV=production
+      - APP_URL=http://localhost:8000
+      - DB_DRIVER=sqlite
+    volumes:
+      - ./database:/var/www/html/database
+      - ./uploads:/var/www/html/uploads

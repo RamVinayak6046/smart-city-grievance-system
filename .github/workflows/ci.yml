@@ -1,0 +1,35 @@
+name: CivicFix Pro CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Lint, Test & Build Docker
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP 8.2
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: pdo, pdo_sqlite, pdo_mysql, gd
+        coverage: none
+
+    - name: PHP Syntax Lint
+      run: |
+        find . -name "*.php" -not -path "./vendor/*" -exec php -l {} +
+
+    - name: Run Core Assignment Test
+      run: |
+        php tests/assignment_test.php
+
+    - name: Build Docker Image
+      run: |
+        docker build -t civicfix-pro:test .

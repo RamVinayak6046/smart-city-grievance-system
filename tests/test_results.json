@@ -1,0 +1,326 @@
+[
+    {
+        "id": "CIT-01",
+        "section": "Citizen Portal",
+        "title": "Citizen Registration with valid data & password hashing",
+        "status": "PASS",
+        "expected": "User record created in database with securely hashed password",
+        "actual": "Created user ID 23 with verified bcrypt hash",
+        "details": ""
+    },
+    {
+        "id": "CIT-02",
+        "section": "Citizen Portal",
+        "title": "Duplicate email registration prevention",
+        "status": "PASS",
+        "expected": "Prevent duplicate registration and show validation error",
+        "actual": "Duplicate rejected with error message; only 1 DB row exists",
+        "details": ""
+    },
+    {
+        "id": "CIT-03",
+        "section": "Citizen Portal",
+        "title": "Registration field validation (email, password length & match)",
+        "status": "PASS",
+        "expected": "Reject invalid inputs with clear error messages",
+        "actual": "Validation correctly trapped empty name, invalid email, short password, mismatch",
+        "details": ""
+    },
+    {
+        "id": "CIT-04",
+        "section": "Citizen Portal",
+        "title": "Citizen login credentials verification",
+        "status": "PASS",
+        "expected": "Reject bad credentials and authenticate valid user to citizen dashboard",
+        "actual": "Bad password rejected; valid credentials land on \/citizen\/dashboard.php",
+        "details": ""
+    },
+    {
+        "id": "CIT-05",
+        "section": "Citizen Portal",
+        "title": "Complaint submission with category, ward, address & attachment",
+        "status": "PASS",
+        "expected": "Complaint created with unique code and attachment saved in database and uploads directory",
+        "actual": "Created CFX-2026-000028 (ID: 28) with photo attachment recorded",
+        "details": ""
+    },
+    {
+        "id": "CIT-06",
+        "section": "Citizen Portal",
+        "title": "Citizen public & dashboard complaint tracking",
+        "status": "PASS",
+        "expected": "Track complaint shows live status badge, timeline history, and department details",
+        "actual": "Tracking page loaded CFX-2026-000028 with interactive timeline",
+        "details": ""
+    },
+    {
+        "id": "CIT-07",
+        "section": "Citizen Portal",
+        "title": "Citizen profile information update",
+        "status": "PASS",
+        "expected": "Profile updates successfully written to database users table",
+        "actual": "Updated name and phone verified in database",
+        "details": ""
+    },
+    {
+        "id": "CIT-08",
+        "section": "Citizen Portal",
+        "title": "Cross-citizen complaint privacy enforcement",
+        "status": "PASS",
+        "expected": "Deny citizen B access to citizen A private complaint details",
+        "actual": "Unauthorized access blocked; redirected with error",
+        "details": ""
+    },
+    {
+        "id": "OFF-01",
+        "section": "Work Official Portal",
+        "title": "Work Official authentication",
+        "status": "PASS",
+        "expected": "Official authenticates successfully into official dashboard",
+        "actual": "Suresh Patil authenticated; landed on \/official\/dashboard.php",
+        "details": ""
+    },
+    {
+        "id": "OFF-02",
+        "section": "Work Official Portal",
+        "title": "Dashboard metrics synchronization with DB",
+        "status": "PASS",
+        "expected": "Dashboard statistics accurately calculated from DB records",
+        "actual": "Dashboard rendered with dynamic workload metrics (active: 2)",
+        "details": ""
+    },
+    {
+        "id": "OFF-03",
+        "section": "Work Official Portal",
+        "title": "Assigned complaints list, filters & search",
+        "status": "PASS",
+        "expected": "Display assigned complaints table with filter tabs and search",
+        "actual": "Assignments table rendered with filtering and action buttons",
+        "details": ""
+    },
+    {
+        "id": "OFF-04",
+        "section": "Work Official Portal",
+        "title": "Official assignment ownership enforcement",
+        "status": "PASS",
+        "expected": "Official blocked from viewing\/modifying tasks assigned to other officials",
+        "actual": "Unauthorized complaint access redirected with access denied notice",
+        "details": ""
+    },
+    {
+        "id": "OFF-05",
+        "section": "Work Official Portal",
+        "title": "Prevention of direct resolution by work official",
+        "status": "PASS",
+        "expected": "Officials strictly forbidden from setting status directly to resolved",
+        "actual": "Status remains 'pending'; resolution bypass thwarted",
+        "details": ""
+    },
+    {
+        "id": "DEP-01",
+        "section": "Department Admin",
+        "title": "Department Administrator authentication",
+        "status": "PASS",
+        "expected": "Department Admin authenticates into departmental dashboard",
+        "actual": "Ravi Kumar (Roads Dept) authenticated successfully",
+        "details": ""
+    },
+    {
+        "id": "DEP-02",
+        "section": "Department Admin",
+        "title": "Departmental complaint isolation",
+        "status": "PASS",
+        "expected": "Department Admin can only monitor grievances within authorized department",
+        "actual": "Complaint queue strictly scoped to Roads & Infrastructure",
+        "details": ""
+    },
+    {
+        "id": "DEP-03",
+        "section": "Department Admin",
+        "title": "Unassigned queue & official workload monitoring",
+        "status": "PASS",
+        "expected": "Unassigned queue accessible with manual assignment tools",
+        "actual": "Unassigned queue loaded with official selection and assignment actions",
+        "details": ""
+    },
+    {
+        "id": "DEP-04",
+        "section": "Department Admin",
+        "title": "Departmental analytics & CSV report export",
+        "status": "PASS",
+        "expected": "Export departmental complaint records as structured CSV",
+        "actual": "CSV generated with correct headers and department complaint rows",
+        "details": ""
+    },
+    {
+        "id": "SUP-01",
+        "section": "Super Admin",
+        "title": "Super Admin authentication & dashboard access",
+        "status": "PASS",
+        "expected": "Super Admin authenticates into global governance dashboard",
+        "actual": "Super Admin authenticated; landed on \/superadmin\/dashboard.php",
+        "details": ""
+    },
+    {
+        "id": "SUP-02",
+        "section": "Super Admin",
+        "title": "Municipal department creation & persistent storage",
+        "status": "PASS",
+        "expected": "New department inserted into database and active in system",
+        "actual": "Department created with ID 15",
+        "details": ""
+    },
+    {
+        "id": "SUP-03",
+        "section": "Super Admin",
+        "title": "Grievance category creation & routing configuration",
+        "status": "PASS",
+        "expected": "Category linked to department with priority and SLA configuration in DB",
+        "actual": "Category created with ID 17 routed to Dept 15",
+        "details": ""
+    },
+    {
+        "id": "SUP-04",
+        "section": "Super Admin",
+        "title": "Ward creation & zone mapping",
+        "status": "PASS",
+        "expected": "Ward recorded in database with zone association",
+        "actual": "Ward created with ID 20 and code W545",
+        "details": ""
+    },
+    {
+        "id": "SUP-05",
+        "section": "Super Admin",
+        "title": "Official creation, workload limits & ward coverage",
+        "status": "PASS",
+        "expected": "Official saved with max workload and ward coverage junction records in DB",
+        "actual": "Official ID 14 created with capacity 8 covering Ward 20",
+        "details": ""
+    },
+    {
+        "id": "SUP-06",
+        "section": "Super Admin",
+        "title": "Citizen account moderation (activate\/deactivate)",
+        "status": "PASS",
+        "expected": "Admin can toggle citizen account status in real-time",
+        "actual": "Citizen status transitioned to 'suspended' and confirmed in DB",
+        "details": ""
+    },
+    {
+        "id": "SUP-07",
+        "section": "Super Admin",
+        "title": "System configuration & SLA threshold settings",
+        "status": "PASS",
+        "expected": "Super Admin can update system settings and SLA thresholds",
+        "actual": "Settings saved and validated",
+        "details": ""
+    },
+    {
+        "id": "SUP-08",
+        "section": "Super Admin",
+        "title": "Comprehensive immutable audit trail logging",
+        "status": "PASS",
+        "expected": "All critical system operations logged with actor, timestamp, IP, and details",
+        "actual": "Audit log view renders persistent actions with JSON payload inspection",
+        "details": ""
+    },
+    {
+        "id": "ROUT-01",
+        "section": "Auto-Assignment",
+        "title": "Category department routing & ward coverage assignment",
+        "status": "PASS",
+        "expected": "Complaint automatically routed to QA Dept and assigned to QA Official covering the ward",
+        "actual": "Auto-assigned CFX-2026-000029 to official ID 14",
+        "details": ""
+    },
+    {
+        "id": "ROUT-02",
+        "section": "Auto-Assignment",
+        "title": "Workload limit exclusion & unassigned queue routing",
+        "status": "PASS",
+        "expected": "Official at capacity excluded; complaint remains pending in unassigned queue",
+        "actual": "Grievance CFX-2026-000037 routed to unassigned queue (load limit 8 enforced)",
+        "details": ""
+    },
+    {
+        "id": "ROUT-03",
+        "section": "Auto-Assignment",
+        "title": "Manual reassignment with history preservation",
+        "status": "PASS",
+        "expected": "Administrator manually reassigns complaint; history entry logged",
+        "actual": "Reassigned to Suresh Patil (ID 6); active assignment updated",
+        "details": ""
+    },
+    {
+        "id": "LIFE-01",
+        "section": "Complaint Lifecycle",
+        "title": "Complete Complaint Lifecycle (Citizen -> Official -> Rework -> Resolution -> Citizen)",
+        "status": "PASS",
+        "expected": "Full progression through all states: assigned -> in_progress -> awaiting_verification -> rework_required -> awaiting_verification -> resolved",
+        "actual": "All 8 lifecycle transitions validated end-to-end with DB proof and notification dispatches",
+        "details": ""
+    },
+    {
+        "id": "DB-01",
+        "section": "Database Integrity",
+        "title": "Complaint code uniqueness across all records",
+        "status": "PASS",
+        "expected": "Zero duplicate complaint codes exist in database",
+        "actual": "All complaint codes are 100% unique",
+        "details": ""
+    },
+    {
+        "id": "DB-02",
+        "section": "Database Integrity",
+        "title": "Foreign key integrity & orphan record prevention",
+        "status": "PASS",
+        "expected": "No orphaned assignment or history records in database",
+        "actual": "Foreign key integrity verified across all junction tables",
+        "details": ""
+    },
+    {
+        "id": "DB-03",
+        "section": "Database Integrity",
+        "title": "Comprehensive audit history trail per complaint",
+        "status": "PASS",
+        "expected": "Full sequence of state transitions logged in complaint_history",
+        "actual": "Complaint CFX-2026-000038 has 7 recorded transition milestones",
+        "details": ""
+    },
+    {
+        "id": "SEC-01",
+        "section": "Security",
+        "title": "Cross-Site Request Forgery (CSRF) token verification",
+        "status": "PASS",
+        "expected": "Reject state-changing requests lacking valid CSRF token",
+        "actual": "Request without CSRF token safely rejected with HTTP 403 \/ CSRF error",
+        "details": ""
+    },
+    {
+        "id": "SEC-02",
+        "section": "Security",
+        "title": "SQL Injection resistance in authentication queries",
+        "status": "PASS",
+        "expected": "SQL injection payloads safely handled via PDO parameter binding",
+        "actual": "Payload neutralized; safe authentication failure rendered",
+        "details": ""
+    },
+    {
+        "id": "SEC-03",
+        "section": "Security",
+        "title": "File upload extension & MIME-type restriction",
+        "status": "PASS",
+        "expected": "Reject non-image file uploads (.php, .exe, scripts)",
+        "actual": "Executable script upload safely rejected by server-side validator",
+        "details": ""
+    },
+    {
+        "id": "NOTIF-01",
+        "section": "Notifications",
+        "title": "Automated event-driven notifications for citizens and staff",
+        "status": "PASS",
+        "expected": "Generate persistent in-app notifications on submission, assignment, rework & resolution",
+        "actual": "Generated 12 citizen notifications and 13 official notifications",
+        "details": ""
+    }
+]

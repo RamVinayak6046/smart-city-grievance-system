@@ -1,0 +1,7 @@
+.git
+.github
+*.sqlite-shm
+*.sqlite-wal
+tests/test_results.json
+.vscode
+.idea

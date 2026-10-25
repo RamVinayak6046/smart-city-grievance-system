@@ -1,4 +1,30 @@
-data/store.json
-data/*.log
-node_modules/
+# SQLite temporary lock and WAL files
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+
+# Environment / local configs
 .env
+.env.local
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs & temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploads content (preserve folder via .gitkeep)
+uploads/*
+!uploads/.gitkeep

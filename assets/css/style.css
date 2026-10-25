@@ -1,0 +1,336 @@
+/* ============================================================
+   CivicFix Pro — Global Stylesheet (style.css)
+   Design: Government-blue / Civic-teal theme
+   ============================================================ */
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+    --primary:        #1a3c6e;   /* civic navy */
+    --primary-dark:   #122d55;
+    --primary-light:  #2563b0;
+    --secondary:      #0d9488;   /* teal */
+    --secondary-light:#14b8a6;
+    --accent:         #f59e0b;   /* amber */
+    --danger:         #dc2626;
+    --success:        #16a34a;
+    --warning:        #d97706;
+    --info:           #2563b0;
+
+    /* Status colours */
+    --status-pending:   #f59e0b;
+    --status-assigned:  #2563b0;
+    --status-inprog:    #7c3aed;
+    --status-awaiting:  #0891b2;
+    --status-rework:    #ea580c;
+    --status-resolved:  #16a34a;
+    --status-rejected:  #dc2626;
+    --status-cancelled: #6b7280;
+
+    /* Priority */
+    --priority-low:      #6b7280;
+    --priority-medium:   #2563b0;
+    --priority-high:     #d97706;
+    --priority-critical: #dc2626;
+
+    /* Typography */
+    --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+    /* Spacing */
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+    --shadow:    0 4px 12px rgba(0,0,0,.10);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,.14);
+}
+
+/* ── Reset / Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: var(--font-sans);
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.6;
+}
+
+a { color: var(--primary-light); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── Public Navbar ──────────────────────────────────────────── */
+.bg-primary-custom {
+    background: var(--primary) !important;
+}
+
+.navbar-brand { font-size: 1.2rem; letter-spacing: -.02em; }
+
+/* ── Hero Section ───────────────────────────────────────────── */
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 60%, #0c2040 100%);
+    color: #fff;
+    padding: 5rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    opacity: .85;
+    max-width: 520px;
+    margin-bottom: 2rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 2rem;
+    padding: .35rem .9rem;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.25rem;
+}
+
+.hero-stat-card {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    transition: transform .2s;
+}
+
+.hero-stat-card:hover { transform: translateY(-2px); }
+.hero-stat-number { font-size: 2rem; font-weight: 800; line-height: 1; }
+.hero-stat-label  { font-size: .8rem; opacity: .75; margin-top: .25rem; }
+
+/* ── Section styles ─────────────────────────────────────────── */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: .5rem;
+}
+
+.section-subtitle {
+    color: #64748b;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ── Feature / How-It-Works cards ──────────────────────────── */
+.feature-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: box-shadow .2s, transform .2s;
+    height: 100%;
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+}
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.step-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    transition: box-shadow .2s;
+}
+
+.step-card:hover { box-shadow: var(--shadow); }
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+/* ── Category cards ─────────────────────────────────────────── */
+.category-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow .2s, transform .2s;
+    cursor: default;
+}
+
+.category-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    margin-bottom: .75rem;
+}
+
+/* ── Badges (status / priority) ────────────────────────────── */
+.badge { font-weight: 500; letter-spacing: .02em; }
+
+.badge-pending    { background: var(--status-pending);   color: #fff; }
+.badge-assigned   { background: var(--status-assigned);  color: #fff; }
+.badge-inprogress { background: var(--status-inprog);    color: #fff; }
+.badge-awaiting   { background: var(--status-awaiting);  color: #fff; }
+.badge-rework     { background: var(--status-rework);    color: #fff; }
+.badge-resolved   { background: var(--status-resolved);  color: #fff; }
+.badge-rejected   { background: var(--status-rejected);  color: #fff; }
+.badge-cancelled  { background: var(--status-cancelled); color: #fff; }
+
+.badge-priority-low      { background: var(--priority-low);      color: #fff; }
+.badge-priority-medium   { background: var(--priority-medium);   color: #fff; }
+.badge-priority-high     { background: var(--priority-high);     color: #fff; }
+.badge-priority-critical { background: var(--priority-critical); color: #fff; }
+
+/* ── Form Styles ─────────────────────────────────────────────── */
+.form-label { font-weight: 500; color: #374151; margin-bottom: .35rem; }
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(37,99,176,.15);
+}
+
+.required-star { color: var(--danger); margin-left: 2px; }
+
+/* ── Auth pages ─────────────────────────────────────────────── */
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.auth-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 440px;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.auth-logo i { font-size: 3rem; color: var(--primary); }
+.auth-logo h2 { font-weight: 800; color: var(--primary); margin-top: .5rem; }
+.auth-logo p  { color: #6b7280; font-size: .9rem; }
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn-primary-custom {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    font-weight: 600;
+}
+.btn-primary-custom:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: #fff;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer-custom {
+    background: var(--primary-dark);
+}
+
+.footer-link {
+    color: #94a3b8;
+    display: block;
+    padding: .2rem 0;
+    transition: color .15s;
+}
+.footer-link:hover { color: #fff; text-decoration: none; }
+
+.text-footer-muted { color: #64748b !important; }
+.text-primary-light { color: #93c5fd !important; }
+
+/* ── Utility ─────────────────────────────────────────────────── */
+.text-primary-custom { color: var(--primary) !important; }
+.bg-primary-custom   { background: var(--primary) !important; }
+.border-primary-custom { border-color: var(--primary) !important; }
+
+/* ── Alerts ─────────────────────────────────────────────────── */
+.alert { border-radius: var(--radius); border: none; }
+
+/* ── Tables ─────────────────────────────────────────────────── */
+.table-hover > tbody > tr:hover > * { background-color: #f0f7ff; }
+.table th { font-weight: 600; font-size: .875rem; color: #374151; }
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.card { border: 1px solid #e2e8f0; border-radius: var(--radius-lg); }
+.card-header {
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+/* ── Empty State ─────────────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #9ca3af;
+}
+.empty-state i { font-size: 4rem; margin-bottom: 1rem; opacity: .4; }
+.empty-state p { font-size: 1.05rem; }
+
+/* ── Responsive Tables ───────────────────────────────────────── */
+.table-responsive-stack @media (max-width: 767px) {
+    display: block;
+}
+
+@media (max-width: 575.98px) {
+    .auth-card { padding: 1.75rem 1.25rem; }
+    .hero { padding: 3rem 0 2.5rem; }
+}

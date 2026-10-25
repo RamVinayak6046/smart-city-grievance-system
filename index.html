@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CivicFix Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <!-- AI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <!-- CONFIG -->
+    <script type="text/babel" src="./src/config/firebase.js"></script>
+    <script type="text/babel" src="./src/config/wards.js"></script>
+
+    <!-- DATABASE -->
+    <script type="text/babel" src="./src/db/MockDB.js"></script>
+
+    <!-- COMPONENTS -->
+    <script type="text/babel" src="./src/components/Icon.jsx"></script>
+    <script type="text/babel" src="./src/components/Login.jsx"></script>
+
+    <!-- DASHBOARDS -->
+    <script type="text/babel" src="./src/dashboards/CitizenDashboard.jsx"></script>
+    <script type="text/babel" src="./src/dashboards/OfficerDashboard.jsx"></script>
+    <script type="text/babel" src="./src/dashboards/AdminDashboard.jsx"></script>
+
+    <!-- APP (MUST COME BEFORE main.jsx) -->
+    <script type="text/babel" src="./src/App.jsx"></script>
+
+    <!-- ENTRY POINT (LAST) -->
+    <script type="text/babel" src="./src/main.jsx"></script>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+/* ============================================================
+   CivicFix Pro — Dashboard Stylesheet (dashboard.css)
+   ============================================================ */
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.dash-body {
+    background: #f1f5f9;
+    overflow-x: hidden;
+}
+
+.dash-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+:root {
+    --sidebar-width: 260px;
+    --topbar-height: 60px;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--primary, #1a3c6e);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    transition: transform .25s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    padding: 1.25rem 1rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    text-decoration: none;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar-brand i { font-size: 1.5rem; flex-shrink: 0; }
+
+/* User info block */
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .9rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: rgba(0,0,0,.15);
+}
+
+.sidebar-user-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.2);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .9rem;
+    flex-shrink: 0;
+}
+
+.sidebar-user-name  { font-weight: 600; font-size: .9rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sidebar-user-role  { font-size: .72rem; opacity: .65; white-space: nowrap; }
+
+/* Nav links */
+.sidebar-nav {
+    flex: 1;
+    padding: .5rem 0;
+    overflow-y: auto;
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    padding: .65rem 1rem;
+    font-size: .875rem;
+    color: rgba(255,255,255,.78);
+    text-decoration: none;
+    border-radius: 0 2rem 2rem 0;
+    margin: .1rem .5rem .1rem 0;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar-nav-item i { font-size: 1rem; flex-shrink: 0; }
+
+.sidebar-nav-item:hover,
+.sidebar-nav-item.active {
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar-nav-item.active {
+    background: rgba(255,255,255,.18);
+    font-weight: 600;
+    border-left: 3px solid var(--secondary, #0d9488);
+}
+
+.text-danger-light { color: #fca5a5 !important; }
+
+/* Sidebar footer */
+.sidebar-footer {
+    padding: .5rem 0 1rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+    margin-top: auto;
+}
+
+/* Overlay (mobile) */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1029;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Main content area ───────────────────────────────────────── */
+.dash-main {
+    margin-left: var(--sidebar-width);
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left .25s ease;
+}
+
+/* ── Topbar ──────────────────────────────────────────────────── */
+.dash-topbar {
+    height: var(--topbar-height);
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    gap: .75rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.dash-avatar-xs {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--primary, #1a3c6e);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Content ─────────────────────────────────────────────────── */
+.dash-content {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.dash-page-header { margin-bottom: 1.5rem; }
+
+.dash-page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary, #1a3c6e);
+    margin: 0;
+}
+
+/* ── Stat Cards ──────────────────────────────────────────────── */
+.stat-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: .75rem;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: box-shadow .2s, transform .2s;
+    height: 100%;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,.09);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    width: 52px; height: 52px;
+    border-radius: .6rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-info { flex: 1; min-width: 0; }
+.stat-value { font-size: 1.8rem; font-weight: 800; line-height: 1.1; color: #1e293b; }
+.stat-label { font-size: .8rem; color: #64748b; margin-top: .1rem; }
+
+/* Colour variants */
+.stat-blue   .stat-icon { background: #eff6ff; color: #2563eb; }
+.stat-teal   .stat-icon { background: #f0fdfa; color: #0d9488; }
+.stat-amber  .stat-icon { background: #fffbeb; color: #d97706; }
+.stat-purple .stat-icon { background: #f5f3ff; color: #7c3aed; }
+.stat-green  .stat-icon { background: #f0fdf4; color: #16a34a; }
+.stat-red    .stat-icon { background: #fef2f2; color: #dc2626; }
+.stat-navy   .stat-icon { background: #eff6ff; color: var(--primary, #1a3c6e); }
+.stat-cyan   .stat-icon { background: #ecfeff; color: #0891b2; }
+
+/* ── Data Table card ─────────────────────────────────────────── */
+.data-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: .75rem;
+    overflow: hidden;
+}
+
+.data-card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    background: #f8fafc;
+}
+
+.data-card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* ── Timeline (complaint history) ────────────────────────────── */
+.timeline { position: relative; padding-left: 2rem; }
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: .6rem;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 1.5rem 1.25rem;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+    position: absolute;
+    left: -1.6rem;
+    top: .15rem;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--primary, #1a3c6e);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary, #1a3c6e);
+}
+
+.timeline-time  { font-size: .75rem; color: #94a3b8; }
+.timeline-title { font-weight: 600; font-size: .9rem; color: #1e293b; }
+.timeline-body  { font-size: .85rem; color: #475569; margin-top: .2rem; }
+
+/* ── Notification items ─────────────────────────────────────── */
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    padding: .85rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+    color: inherit;
+    transition: background .15s;
+}
+
+.notif-item:hover { background: #f8fafc; }
+.notif-item.unread { background: #eff6ff; }
+
+.notif-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--primary, #1a3c6e);
+    flex-shrink: 0;
+    margin-top: .4rem;
+}
+
+/* ── Mobile responsiveness ───────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 24px rgba(0,0,0,.25);
+    }
+    .dash-main {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dash-content { padding: 1rem .75rem; }
+    .stat-value   { font-size: 1.5rem; }
+    .dash-page-title { font-size: 1.25rem; }
+}
